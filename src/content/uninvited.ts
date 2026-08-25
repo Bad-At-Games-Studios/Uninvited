@@ -27,7 +27,7 @@ export const content = {
   ],
 
   hero: {
-    kicker: "A first-person thief & detective puzzle adventure",
+    kicker: "A puzzle adventure",
     tagline:
       "You were never invited in. Every house you enter remembers what happened there — and expects you to figure it out before the lights come back on.",
     primaryCta: { label: "Watch the trailer", href: "#trailer" },
