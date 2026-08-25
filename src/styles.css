@@ -1,0 +1,368 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@theme inline {
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-hand: "Caveat Brush", cursive;
+  --font-type: "Special Elite", "Courier New", monospace;
+  --font-body: "Barlow", system-ui, sans-serif;
+  --color-blood: var(--blood);
+  --color-brass: var(--brass);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+}
+
+/* ── UNINVITED page theme ───────────────────────────────────────────── */
+.theme-uninvited {
+  --ink: oklch(0.14 0.008 60);
+  --paper: oklch(0.93 0.014 85);
+  --blood: oklch(0.52 0.19 27);
+  --brass: oklch(0.72 0.12 70);
+
+  --background: oklch(0.115 0.007 60);
+  --foreground: var(--paper);
+  --card: oklch(0.165 0.008 60);
+  --card-foreground: var(--paper);
+  --popover: oklch(0.165 0.008 60);
+  --popover-foreground: var(--paper);
+  --primary: var(--blood);
+  --primary-foreground: oklch(0.96 0.01 85);
+  --secondary: oklch(0.2 0.009 60);
+  --secondary-foreground: var(--paper);
+  --muted: oklch(0.2 0.009 60);
+  --muted-foreground: oklch(0.66 0.015 75);
+  --accent: var(--brass);
+  --accent-foreground: oklch(0.14 0.008 60);
+  --border: oklch(0.86 0.02 80 / 14%);
+  --input: oklch(0.86 0.02 80 / 18%);
+  --ring: var(--blood);
+
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Grain + vignette laid over the whole page */
+@utility grain-surface {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("/images/grain.jpg");
+    background-size: 420px;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+  }
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at 50% 40%,
+      transparent 40%,
+      oklch(0.08 0.006 60 / 0.75) 100%
+    );
+  }
+}
+
+/* Hand-painted red stroke under a heading */
+@utility brush-mark {
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: "";
+    position: absolute;
+    left: -0.1em;
+    right: -0.1em;
+    bottom: -0.18em;
+    height: 0.14em;
+    background: var(--blood);
+    opacity: 0.9;
+    clip-path: polygon(
+      0% 40%,
+      6% 8%,
+      22% 30%,
+      40% 4%,
+      58% 34%,
+      74% 8%,
+      92% 32%,
+      100% 12%,
+      100% 82%,
+      82% 100%,
+      60% 72%,
+      38% 98%,
+      18% 70%,
+      4% 96%
+    );
+  }
+}
+
+/* Torn tape strip for scrapbook cards */
+@utility tape {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.65rem;
+    left: 50%;
+    width: 5.5rem;
+    height: 1.5rem;
+    transform: translateX(-50%) rotate(-3deg);
+    background: oklch(0.86 0.05 85 / 0.16);
+    border-left: 1px dashed oklch(0.86 0.05 85 / 0.25);
+    border-right: 1px dashed oklch(0.86 0.05 85 / 0.25);
+    backdrop-filter: blur(1px);
+  }
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+}
+
+@utility eyebrow {
+  font-family: var(--font-type);
+  font-size: 0.7rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+/* Rough, hand-painted feel over big display type */
+@utility rough-text {
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 1px 0 oklch(0 0 0 / 0.5);
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -6%;
+    pointer-events: none;
+    background-image: url("/images/grain.jpg");
+    background-size: 260px;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+}
+
+/* Animated hairline that grows in on hover / active nav item */
+@utility nav-link {
+  position: relative;
+  padding-block: 0.35rem;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--blood);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &:hover::after,
+  &[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Scrapbook card: subtle lift + warm rim light on hover */
+@utility photo-card {
+  transition:
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 400ms ease;
+  box-shadow: 0 24px 60px -34px oklch(0 0 0 / 0.95);
+  &:hover {
+    transform: translateY(-6px) rotate(0deg) !important;
+    border-color: oklch(0.86 0.02 80 / 0.3);
+    box-shadow:
+      0 36px 80px -34px oklch(0 0 0 / 1),
+      0 0 0 1px oklch(0.72 0.12 70 / 0.14);
+  }
+}
+
+/* Vertical red chapter tick used beside kickers */
+@utility tick {
+  position: relative;
+  padding-left: 1.25rem;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    width: 0.6rem;
+    height: 2px;
+    background: var(--blood);
+  }
+}
+
+@utility section-pad {
+  padding-block: clamp(4.5rem, 11vw, 9.5rem);
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
