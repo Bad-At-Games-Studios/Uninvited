@@ -2,23 +2,25 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { content } from "@/content/uninvited";
+import { SiteNav } from "@/components/shared/SiteNav";
+import { Footer } from "@/components/shared/Footer";
 import { SmoothLink } from "@/components/uninvited/SmoothLink";
 import { Reveal, useActiveSection } from "@/components/uninvited/Reveal";
 
 export const Route = createFileRoute("/uninvited")({
   head: () => ({
     meta: [
-      { title: "UNINVITED — A first-person thief & detective puzzle adventure" },
+      { title: "Uninvited — Puzzle Adventure Game | Bad At Games" },
       {
         name: "description",
         content:
-          "Uninvited is a slow-burn breaking-and-entering mystery. Pick the lock, read the room, and leave with the truth before the lights come back on.",
+          "An upcoming puzzle-adventure game where you play as a thief, exploring mysterious locations, solving puzzles, uncovering stories, and escaping.",
       },
-      { property: "og:title", content: "UNINVITED — thief & detective puzzle adventure" },
+      { property: "og:title", content: "Uninvited — Puzzle Adventure Game | Bad At Games" },
       {
         property: "og:description",
         content:
-          "One house. One night. No quest markers. Uninvited is a first-person puzzle mystery from Hollow Lamp Studio.",
+          "An upcoming puzzle-adventure game where you play as a thief, exploring mysterious locations, solving puzzles, uncovering stories, and escaping.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -29,96 +31,20 @@ export const Route = createFileRoute("/uninvited")({
 
 function UninvitedPage() {
   return (
-    <div className="theme-uninvited grain-surface min-h-screen antialiased">
-      <SiteHeader />
+    <div className="theme-uninvited game-page-surface grain-surface min-h-screen antialiased">
+      <SiteNav currentPath="/uninvited" />
       <main id="top">
         <Hero />
-        <About />
         <Gameplay />
         <Story />
-        <Trailer />
         <Gallery />
-        <Info />
       </main>
-      <SiteFooter />
+      <Footer />
     </div>
   );
 }
 
-/* ── Header ─────────────────────────────────────────────────────────── */
-
-function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const active = useActiveSection(content.nav.map((item) => item.href.slice(1)));
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <header
-      className={`sticky top-0 z-50 transition-colors duration-500 ${
-        scrolled ? "border-b border-border bg-background/85 backdrop-blur-md" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <SmoothLink
-          href="#top"
-          className="font-display text-xl tracking-[0.28em] text-foreground"
-        >
-          {content.brand.title}
-        </SmoothLink>
-
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {content.nav.map((item) => (
-            <SmoothLink
-              key={item.href}
-              href={item.href}
-              data-active={active === item.href.slice(1)}
-              aria-current={active === item.href.slice(1) ? "true" : undefined}
-              className="eyebrow nav-link transition-colors hover:text-foreground data-[active=true]:text-foreground"
-            >
-              {item.label}
-            </SmoothLink>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-          className="eyebrow rounded-sm border border-border px-3 py-2 text-foreground md:hidden"
-        >
-          {open ? "Close" : "Menu"}
-        </button>
-      </div>
-
-      {open && (
-        <nav
-          id="mobile-nav"
-          aria-label="Primary mobile"
-          className="border-t border-border bg-background/95 px-5 pb-6 pt-2 md:hidden"
-        >
-          {content.nav.map((item) => (
-            <SmoothLink
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="block border-b border-border py-3 font-display text-lg tracking-widest text-foreground"
-            >
-              {item.label}
-            </SmoothLink>
-          ))}
-        </nav>
-      )}
-    </header>
-  );
-}
+/* ── Header (Removed - using shared SiteNav) ─────────────────────────────────────────────────────────── */
 
 /* ── Hero ───────────────────────────────────────────────────────────── */
 
@@ -135,16 +61,19 @@ function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,var(--background)_4%,transparent_55%),linear-gradient(to_right,var(--background)_0%,transparent_45%)]"
+        className="uninvited-hero-overlay absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--background)_0%,transparent_45%)]"
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-32 sm:px-8 sm:pb-24">
         <p className="eyebrow">{hero.kicker}</p>
-        <h1 className="mt-5 font-display text-[clamp(3.5rem,15vw,11rem)] leading-[0.82] tracking-[0.04em] text-foreground">
+        <h1 className="uninvited-title mt-5 font-type text-[clamp(3.5rem,15vw,11rem)] leading-[0.82] tracking-[0.04em] text-foreground">
           <span className="brush-mark rough-text">{brand.title}</span>
         </h1>
         <p className="mt-9 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {hero.tagline}
+        </p>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {content.about.lead}
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -185,54 +114,7 @@ function Hairline() {
   return <div aria-hidden="true" className="hairline mx-auto max-w-7xl" />;
 }
 
-/* ── About ──────────────────────────────────────────────────────────── */
-
-function About() {
-  const { about } = content;
-  return (
-    <>
-      <Hairline />
-      <section id="about" tabIndex={-1} className="mx-auto max-w-7xl section-pad px-5 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <SectionHeading kicker="01 — The premise">{about.heading}</SectionHeading>
-          <div>
-            <p className="font-hand text-2xl leading-snug text-accent sm:text-3xl">{about.lead}</p>
-            {about.body.map((para) => (
-              <p key={para} className="mt-6 leading-relaxed text-muted-foreground">
-                {para}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <ul className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {about.cards.map((card, i) => (
-            <li
-              key={card.title}
-              className="tape photo-card border border-border bg-card p-3"
-              style={{ transform: `rotate(${i === 1 ? 0.8 : i === 2 ? -0.6 : -1.1}deg)` }}
-            >
-              <img
-                src={card.image}
-                alt={card.alt}
-                loading="lazy"
-                width={1024}
-                height={1280}
-                className="aspect-[4/5] w-full object-cover grayscale-[0.25] transition duration-700 hover:grayscale-0"
-              />
-              <div className="px-3 py-5">
-                <h3 className="font-display text-xl tracking-wider text-foreground">
-                  {card.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.copy}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </>
-  );
-}
+/* ── About (Removed - content moved to Gameplay) ─────────────────────────────────────────────────────────── */
 
 /* ── Gameplay ───────────────────────────────────────────────────────── */
 
@@ -241,17 +123,16 @@ function Gameplay() {
   return (
     <>
       <Hairline />
-      <section
-        id="gameplay"
-        tabIndex={-1}
-        className="mx-auto max-w-7xl section-pad px-5 sm:px-8"
-      >
-        <SectionHeading kicker="02 — Loop">{gameplay.heading}</SectionHeading>
+      <section id="gameplay" tabIndex={-1} className="mx-auto max-w-7xl section-pad px-5 sm:px-8">
+        <SectionHeading kicker="GAMEPLAY">{gameplay.heading}</SectionHeading>
         <p className="mt-6 max-w-xl text-muted-foreground">{gameplay.lead}</p>
 
         <ol className="mt-16 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {gameplay.steps.map((step) => (
-            <li key={step.number} className="group bg-background p-8 transition-colors hover:bg-card">
+            <li
+              key={step.number}
+              className="group bg-background p-8 transition-colors hover:bg-card"
+            >
               <span className="font-display text-5xl text-primary/70 transition-colors group-hover:text-primary">
                 {step.number}
               </span>
@@ -289,7 +170,7 @@ function Story() {
 
           <div>
             <p className="eyebrow tick text-primary">{story.kicker}</p>
-            <h2 className="mt-4 font-display text-[clamp(2.2rem,6vw,4rem)] leading-[0.95] tracking-wide text-foreground">
+            <h2 className="uninvited-title mt-4 font-type text-[clamp(2.2rem,6vw,4rem)] leading-[0.95] tracking-wide text-foreground">
               <span className="brush-mark rough-text">{story.heading}</span>
             </h2>
             {story.copy.map((para) => (
@@ -329,7 +210,7 @@ function Trailer() {
         tabIndex={-1}
         className="mx-auto max-w-6xl section-pad px-5 text-center sm:px-8"
       >
-        <SectionHeading kicker="03 — Trailer">{trailer.heading}</SectionHeading>
+        <SectionHeading kicker="TRAILER">{trailer.heading}</SectionHeading>
         <p className="mx-auto mt-6 max-w-lg text-muted-foreground">{trailer.copy}</p>
 
         <div className="mt-12 border border-border bg-card p-2 shadow-[0_40px_100px_-50px_oklch(0_0_0/1)]">
@@ -380,7 +261,7 @@ function Gallery() {
       <Hairline />
       <section id="gallery" tabIndex={-1} className="section-pad">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <SectionHeading kicker="04 — Gallery">{gallery.heading}</SectionHeading>
+          <SectionHeading kicker="GALLERY">{gallery.heading}</SectionHeading>
         </div>
 
         <ul className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8">
@@ -414,7 +295,7 @@ function Info() {
       <Hairline />
       <section id="info" tabIndex={-1} className="mx-auto max-w-7xl section-pad px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <SectionHeading kicker="05 — Fact sheet">{info.heading}</SectionHeading>
+          <SectionHeading>{info.heading}</SectionHeading>
           <dl className="divide-y divide-border border-y border-border">
             {info.rows.map((row) => (
               <div key={row.label} className="flex flex-col gap-1 py-5 sm:flex-row sm:gap-8">
@@ -429,34 +310,4 @@ function Info() {
   );
 }
 
-/* ── Footer ─────────────────────────────────────────────────────────── */
-
-function SiteFooter() {
-  const { footer, brand } = content;
-  return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-16 sm:px-8 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <p className="font-display text-4xl tracking-[0.22em] text-foreground">{brand.title}</p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-            {footer.line}
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 lg:items-end">
-          <nav aria-label="Footer" className="flex flex-wrap gap-6">
-            {footer.links.map((link) => (
-              <SmoothLink
-                key={link.label}
-                href={link.href}
-                className="eyebrow transition-colors hover:text-primary"
-              >
-                {link.label}
-              </SmoothLink>
-            ))}
-          </nav>
-          <p className="text-xs text-muted-foreground">{footer.copyright}</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
+/* ── Footer (Removed - using shared Footer) ─────────────────────────────────────────────────────────── */

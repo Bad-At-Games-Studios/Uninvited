@@ -10,11 +10,35 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as NotcompatibleRouteImport } from './routes/notcompatible'
+import { Route as StayaheadRouteImport } from './routes/stayahead'
+import { Route as SupermarketshowdownRouteImport } from './routes/supermarketshowdown'
 import { Route as UninvitedRouteImport } from './routes/uninvited'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotcompatibleRoute = NotcompatibleRouteImport.update({
+  id: '/notcompatible',
+  path: '/notcompatible',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StayaheadRoute = StayaheadRouteImport.update({
+  id: '/stayahead',
+  path: '/stayahead',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupermarketshowdownRoute = SupermarketshowdownRouteImport.update({
+  id: '/supermarketshowdown',
+  path: '/supermarketshowdown',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UninvitedRoute = UninvitedRouteImport.update({
@@ -25,27 +49,62 @@ const UninvitedRoute = UninvitedRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/games': typeof GamesRoute
+  '/notcompatible': typeof NotcompatibleRoute
+  '/stayahead': typeof StayaheadRoute
+  '/supermarketshowdown': typeof SupermarketshowdownRoute
   '/uninvited': typeof UninvitedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/games': typeof GamesRoute
+  '/notcompatible': typeof NotcompatibleRoute
+  '/stayahead': typeof StayaheadRoute
+  '/supermarketshowdown': typeof SupermarketshowdownRoute
   '/uninvited': typeof UninvitedRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/games': typeof GamesRoute
+  '/notcompatible': typeof NotcompatibleRoute
+  '/stayahead': typeof StayaheadRoute
+  '/supermarketshowdown': typeof SupermarketshowdownRoute
   '/uninvited': typeof UninvitedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/uninvited'
+  fullPaths:
+    | '/'
+    | '/games'
+    | '/notcompatible'
+    | '/stayahead'
+    | '/supermarketshowdown'
+    | '/uninvited'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/uninvited'
-  id: '__root__' | '/' | '/uninvited'
+  to:
+    | '/'
+    | '/games'
+    | '/notcompatible'
+    | '/stayahead'
+    | '/supermarketshowdown'
+    | '/uninvited'
+  id:
+    | '__root__'
+    | '/'
+    | '/games'
+    | '/notcompatible'
+    | '/stayahead'
+    | '/supermarketshowdown'
+    | '/uninvited'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GamesRoute: typeof GamesRoute
+  NotcompatibleRoute: typeof NotcompatibleRoute
+  StayaheadRoute: typeof StayaheadRoute
+  SupermarketshowdownRoute: typeof SupermarketshowdownRoute
   UninvitedRoute: typeof UninvitedRoute
 }
 
@@ -56,6 +115,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notcompatible': {
+      id: '/notcompatible'
+      path: '/notcompatible'
+      fullPath: '/notcompatible'
+      preLoaderRoute: typeof NotcompatibleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stayahead': {
+      id: '/stayahead'
+      path: '/stayahead'
+      fullPath: '/stayahead'
+      preLoaderRoute: typeof StayaheadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/supermarketshowdown': {
+      id: '/supermarketshowdown'
+      path: '/supermarketshowdown'
+      fullPath: '/supermarketshowdown'
+      preLoaderRoute: typeof SupermarketshowdownRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/uninvited': {
@@ -70,6 +157,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GamesRoute: GamesRoute,
+  NotcompatibleRoute: NotcompatibleRoute,
+  StayaheadRoute: StayaheadRoute,
+  SupermarketshowdownRoute: SupermarketshowdownRoute,
   UninvitedRoute: UninvitedRoute,
 }
 export const routeTree = rootRouteImport
