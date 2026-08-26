@@ -14,7 +14,7 @@ export function SiteNav({ currentPath }: { currentPath: string }) {
           <img
             src="/images/studio/logo.png"
             alt="Bad At Games"
-            className="h-10 w-auto object-contain"
+            className="h-16 w-auto object-contain"
           />
         </Link>
 

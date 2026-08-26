@@ -70,30 +70,6 @@ function About() {
       <div className="mx-auto max-w-3xl">
         <SectionHeading>{about.heading}</SectionHeading>
         <p className="mt-6 text-lg text-muted-foreground">{about.description}</p>
-        <p className="mt-3 text-sm text-muted-foreground">{about.secondary}</p>
-      </div>
-    </section>
-  );
-}
-
-function GameInfo() {
-  const { info } = supermarketShowdownContent;
-  return (
-    <section className="border-t border-border bg-muted/30">
-      <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <div className="mx-auto max-w-2xl">
-          <SectionHeading heading={info.heading} />
-          <dl className="mt-8 space-y-4">
-            {info.rows.map((row) => (
-              <div key={row.label} className="flex flex-col gap-1 sm:flex-row sm:gap-8">
-                <dt className="text-sm font-medium text-muted-foreground sm:w-40 sm:shrink-0">
-                  {row.label}
-                </dt>
-                <dd className="text-foreground">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   );

@@ -16,38 +16,16 @@ export const notCompatibleContent = {
   },
 
   about: {
-    heading: "What is Not Compatible",
+    heading: "WHAT IS NOT COMPATIBLE",
     description:
       "Not Compatible is a minimalist reaction experiment built around simple rules, fast decisions, and pattern recognition.",
   },
 
-  gameplay: {
-    heading: "Features",
-    features: [
-      "Minimalist design",
-      "Reaction-based gameplay",
-      "Rule-based challenges",
-      "Progressive difficulty",
-      "Clean visual aesthetic",
-    ],
-  },
-
   screenshots: {
-    heading: "Screenshots",
+    heading: "SCREENSHOTS",
     images: [
       "/images/games/notcompatible/screenshot1.jpg",
       "/images/games/notcompatible/screenshot2.jpg",
-    ],
-  },
-
-  info: {
-    heading: "Game Info",
-    rows: [
-      { label: "Title", value: "Not Compatible" },
-      { label: "Genre", value: "Reaction Experiment" },
-      { label: "Platform", value: "Web" },
-      { label: "Status", value: "Web Prototype Available" },
-      { label: "Developer", value: "Bad At Games" },
     ],
   },
 };

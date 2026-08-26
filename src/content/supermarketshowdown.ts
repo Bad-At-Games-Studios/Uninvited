@@ -12,19 +12,7 @@ export const supermarketShowdownContent = {
   },
 
   about: {
-    heading: "About Supermarket Showdown",
+    heading: "ABOUT SUPERMARKET SHOWDOWN",
     description: "A future project from Bad At Games. More details coming soon.",
-    secondary: "Development is underway. Check back for gameplay, features, and more.",
-  },
-
-  info: {
-    heading: "Game Info",
-    rows: [
-      { label: "Title", value: "Supermarket Showdown" },
-      { label: "Genre", value: "TBA" },
-      { label: "Platform", value: "TBA" },
-      { label: "Status", value: "In Development" },
-      { label: "Developer", value: "Bad At Games" },
-    ],
   },
 };

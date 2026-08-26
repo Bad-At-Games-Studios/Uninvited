@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type { CSSProperties } from "react";
 import { SiteNav } from "@/components/shared/SiteNav";
 import { Footer } from "@/components/shared/Footer";
 import { CTAButton } from "@/components/shared/CTAButton";
@@ -24,10 +23,7 @@ function StayAheadPage() {
   const { hero, zones, screenshots } = stayAheadContent;
 
   return (
-    <div
-      className="theme-stayahead game-page-surface min-h-screen antialiased"
-      style={{ "--stayahead-background": `url("${hero.backgroundImage}")` } as CSSProperties}
-    >
+    <div className="theme-stayahead game-page-surface min-h-screen antialiased">
       <SiteNav currentPath="/stayahead" />
       <main>
         <Hero />
@@ -163,8 +159,6 @@ function Screenshots() {
                 <img src={image.src} alt={image.alt} loading="lazy" />
               )}
             </div>
-            {index === 1 && <figcaption>GAMEPLAY</figcaption>}
-            {index === 4 && <figcaption>IN THE RUN</figcaption>}
           </figure>
         ))}
       </div>

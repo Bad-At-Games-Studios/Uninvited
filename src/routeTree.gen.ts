@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as GamesRouteImport } from './routes/games'
 import { Route as NotcompatibleRouteImport } from './routes/notcompatible'
 import { Route as StayaheadRouteImport } from './routes/stayahead'
 import { Route as SupermarketshowdownRouteImport } from './routes/supermarketshowdown'
@@ -19,11 +18,6 @@ import { Route as UninvitedRouteImport } from './routes/uninvited'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GamesRoute = GamesRouteImport.update({
-  id: '/games',
-  path: '/games',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotcompatibleRoute = NotcompatibleRouteImport.update({
@@ -49,7 +43,6 @@ const UninvitedRoute = UninvitedRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/games': typeof GamesRoute
   '/notcompatible': typeof NotcompatibleRoute
   '/stayahead': typeof StayaheadRoute
   '/supermarketshowdown': typeof SupermarketshowdownRoute
@@ -57,7 +50,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/games': typeof GamesRoute
   '/notcompatible': typeof NotcompatibleRoute
   '/stayahead': typeof StayaheadRoute
   '/supermarketshowdown': typeof SupermarketshowdownRoute
@@ -66,7 +58,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/games': typeof GamesRoute
   '/notcompatible': typeof NotcompatibleRoute
   '/stayahead': typeof StayaheadRoute
   '/supermarketshowdown': typeof SupermarketshowdownRoute
@@ -76,7 +67,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/games'
     | '/notcompatible'
     | '/stayahead'
     | '/supermarketshowdown'
@@ -84,7 +74,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/games'
     | '/notcompatible'
     | '/stayahead'
     | '/supermarketshowdown'
@@ -92,7 +81,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/games'
     | '/notcompatible'
     | '/stayahead'
     | '/supermarketshowdown'
@@ -101,7 +89,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  GamesRoute: typeof GamesRoute
   NotcompatibleRoute: typeof NotcompatibleRoute
   StayaheadRoute: typeof StayaheadRoute
   SupermarketshowdownRoute: typeof SupermarketshowdownRoute
@@ -115,13 +102,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/games': {
-      id: '/games'
-      path: '/games'
-      fullPath: '/games'
-      preLoaderRoute: typeof GamesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notcompatible': {
@@ -157,7 +137,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  GamesRoute: GamesRoute,
   NotcompatibleRoute: NotcompatibleRoute,
   StayaheadRoute: StayaheadRoute,
   SupermarketshowdownRoute: SupermarketshowdownRoute,

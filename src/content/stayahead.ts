@@ -49,12 +49,12 @@ export const stayAheadContent = {
   },
 
   screenshots: {
-    heading: "EVERY SECOND COUNTS",
+    heading: "GAMEPLAY",
     description: "Balance speed, manage risk, and push your run further.",
     images: [
       {
         type: "video",
-        src: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID",
+        src: "https://www.youtube.com/watch?v=bzs5uv09anw",
         alt: "Stay Ahead gameplay video",
       },
       {

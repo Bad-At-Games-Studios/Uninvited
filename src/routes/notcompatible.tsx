@@ -22,7 +22,7 @@ export const Route = createFileRoute("/notcompatible")({
 });
 
 function NotCompatiblePage() {
-  const { hero, about, gameplay, screenshots, info } = notCompatibleContent;
+  const { hero, about, screenshots } = notCompatibleContent;
 
   return (
     <div className="theme-notcompatible game-page-surface min-h-screen antialiased">
@@ -115,29 +115,6 @@ function Screenshots() {
         heading={screenshots.heading}
         images={screenshots.images.map((src) => ({ src, alt: "Not Compatible screenshot" }))}
       />
-    </section>
-  );
-}
-
-function GameInfo() {
-  const { info } = notCompatibleContent;
-  return (
-    <section className="border-t border-border bg-muted/30">
-      <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <div className="mx-auto max-w-2xl">
-          <SectionHeading heading={info.heading} />
-          <dl className="mt-8 space-y-4">
-            {info.rows.map((row) => (
-              <div key={row.label} className="flex flex-col gap-1 sm:flex-row sm:gap-8">
-                <dt className="text-sm font-mono text-muted-foreground sm:w-40 sm:shrink-0">
-                  {row.label}
-                </dt>
-                <dd className="text-foreground font-mono">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
     </section>
   );
 }

@@ -266,7 +266,7 @@
 .theme-stayahead.game-page-surface::before {
   background-image:
     linear-gradient(oklch(0.08 0.03 260 / 0.88), oklch(0.08 0.03 260 / 0.96)),
-    var(--stayahead-background, url("/images/games/stayahead/hero.jpg"));
+    var(--stayahead-background, url("/images/games/stayahead/bg.jpg"));
 }
 
 .stayahead-hero {
@@ -281,7 +281,7 @@
       oklch(0.04 0.02 260 / 0.2) 62%,
       oklch(0.04 0.02 260 / 0.42)
     ),
-    var(--stayahead-background, url("/images/games/stayahead/hero.jpg"));
+    var(--stayahead-background, url("/images/games/stayahead/bg.jpg"));
   background-position: center;
   background-size: cover;
 }
@@ -296,7 +296,7 @@
 }
 
 .stayahead-hero__gameplay {
-  width: min(100%, 760px);
+  width: min(100%, 560px);
   filter: drop-shadow(0 24px 28px oklch(0 0 0 / 0.5));
   animation: stayahead-gameplay-enter 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }

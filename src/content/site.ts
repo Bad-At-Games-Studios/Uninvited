@@ -27,9 +27,9 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { label: "Games", href: "#games" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Games", href: "/#games" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const gamesNavigation = [
