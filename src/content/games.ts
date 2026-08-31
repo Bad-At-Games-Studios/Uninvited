@@ -44,7 +44,7 @@ export const gamesConfig = [
     slug: "uninvited",
     title: "Uninvited",
     type: "Puzzle / Adventure / Point-and-Click",
-    status: "In Development",
+    status: "Available on Android",
     shortDescription: "Explore strange places, solve puzzles, uncover stories, and find a way out.",
     description:
       "You are a thief. Every job takes you somewhere new, where you'll explore, decode puzzles, uncover clues, and uncover the story behind the place.",

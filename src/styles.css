@@ -597,6 +597,7 @@
 
 .theme-uninvited .site-chrome {
   color: var(--foreground);
+  /* background-color: black; */
 }
 
 .theme-uninvited .site-chrome .text-muted-foreground,

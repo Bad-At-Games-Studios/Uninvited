@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 import { content } from "@/content/uninvited";
 import { SiteNav } from "@/components/shared/SiteNav";
@@ -152,20 +152,30 @@ function Gameplay() {
 
 function Story() {
   const { story } = content;
+
   return (
     <>
       <Hairline />
       <section id="story" tabIndex={-1} className="relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl items-center gap-14 section-pad px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
           <div className="tape photo-card border border-border bg-card p-3">
-            <img
+            {/* <img
               src={story.image}
               alt={story.imageAlt}
               loading="lazy"
               width={1536}
               height={1024}
               className="aspect-[3/2] w-full object-cover"
-            />
+            /> */}
+            <video src="public/images/games/uninvited/StoryChapterArtwork.mp4"  
+              muted
+              autoPlay
+              loop
+              playsInline 
+              loading="lazy"
+              width={1536}
+              height={1024}
+              className="aspect-[3/2] w-full object-cover"></video>
           </div>
 
           <div>

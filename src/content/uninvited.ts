@@ -27,10 +27,10 @@ export const content = {
   ],
 
   hero: {
-    kicker: "BREAK IN. SOLVE. ESCAPE.",
-    tagline: "Every house tells a different story.",
-    primaryCta: { label: "WATCH TRAILER", href: "#trailer" },
-    secondaryCta: { label: "EXPLORE GAME", href: "#gameplay" },
+    kicker: "Break in. Keep your cool. Find your way out.",
+    tagline: "You thought this would be an easy job. You were wrong. Every house tells a different story.",
+    primaryCta: { label: "WATCH TRAILER", href: "https://www.youtube.com/watch?v=2IS8eKLfyIY" },
+    secondaryCta: { label: "EXPLORE GAME", href: "https://play.google.com/store/apps/details?id=com.badatgames.uninvited" },
     image: heroImage,
     imageAlt: "A hooded figure standing in a dim, lamp-lit apartment hallway",
   },
@@ -66,7 +66,7 @@ export const content = {
 
   gameplay: {
     heading: "GAMEPLAY",
-    lead: "Explore mysterious locations, solve puzzles, uncover stories, and escape.",
+    lead: "Explore different clues, solve puzzle , uncover stories and escape.",
     steps: [
       {
         number: "EXPLORE",
@@ -93,15 +93,15 @@ export const content = {
 
   story: {
     kicker: "CHAPTERS",
-    heading: "EVERY JOB. A NEW STORY.",
+    heading: "Every Chapter. A new story",
     copy: [
-      "Uninvited will feature different chapters with different locations, puzzles, and stories.",
-      "Each chapter takes you to a new location with its own mysteries to solve and stories to uncover.",
+      "What looks like an ordinary place can hide a lot more than you expect.",
+      "Every room has its own story, strange details, and secrets waiting to be uncovered. And sometimes, the smallest things are the ones worth noticing.",
     ],
     facts: [
-      { label: "Format", value: "Episodic Chapters" },
-      { label: "Locations", value: "Multiple Unique Settings" },
-      { label: "Stories", value: "Standalone Narratives" },
+      { label: "", value: "" },
+      { label: "", value: "" },
+      { label: "", value: "" },
     ],
     image: chapterImage,
     imageAlt: "A small boy silhouetted at the end of a dim corridor lit by warm light",
@@ -111,20 +111,17 @@ export const content = {
     heading: "TRAILER",
     copy: "Watch the trailer for Uninvited.",
     // Swap this for your own embed URL (YouTube, Vimeo, or a direct .mp4 in a <video>).
-    embedUrl: "https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ",
+    embedUrl: "https://www.youtube.com/watch?v=2IS8eKLfyIY",
     embedTitle: "Uninvited — reveal trailer",
     poster: heroImage,
   },
 
   gallery: {
-    heading: "From the night shift",
+    heading: "Behind the scenes",
     images: [
       { src: gallery1, alt: "Rain-soaked city street at night seen from an apartment window" },
       { src: gallery2, alt: "An open safe holding old letters and a pocket watch" },
-      { src: card1, alt: "Evidence photographs spread under a desk lamp" },
-      { src: gallery3, alt: "Photographs pinned across a wall under a single bulb" },
-      { src: card3, alt: "A figure glimpsed through a doorway from the dark" },
-      { src: card2, alt: "A gloved hand working a lock on an old wooden door at night" },
+      { src: gallery3, alt: "Evidence photographs spread under a desk lamp" },
     ],
   },
 
@@ -146,7 +143,7 @@ export const content = {
     line: "Uninvited is an independent game from Bad At Games.",
     links: [
       { label: "Press kit", href: "#info" },
-      { label: "Contact", href: "mailto:hello@badatgames.com" },
+      { label: "Contact", href: "mailto:badatgamesstudio@gmail.com" },
       { label: "Discord", href: "https://discord.gg/8QFn72B7Am" },
     ],
     copyright: "© 2026 Bad At Games. All rights reserved.",
